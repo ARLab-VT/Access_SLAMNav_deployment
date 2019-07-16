@@ -16,7 +16,7 @@ fi
 
 tmux has-session -t zedmapper $2>/dev/null
 if [ $? = 0 ]; then
-	rosnode kill /zed_wrapper
+	rosnode kill /zed/zed_wrapper
 	tmux send-keys -t zedmapper "echo bagels" C-m
 	tmux send-keys -t zedmapper "tmux kill-session" C-m
 	echo "Mapping stopped."
