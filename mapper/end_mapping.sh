@@ -7,7 +7,7 @@ fi
 
 tmux has-session -t rosbagger $2>/dev/null
 if [ $? = 0 ]; then
-	tmux send-keys -t rosbagger C-c
+	rosnode kill /bagger
 	tmux send-keys -t rosbagger "echo bananas" C-m
 	tmux send-keys -t rosbagger "tmux kill-session" C-m
 	echo "Bagging complete."
@@ -16,7 +16,7 @@ fi
 
 tmux has-session -t zedmapper $2>/dev/null
 if [ $? = 0 ]; then
-	tmux send-keys -t zedmapper C-c
+	rosnode kill /zed_wrapper
 	tmux send-keys -t zedmapper "echo bagels" C-m
 	tmux send-keys -t zedmapper "tmux kill-session" C-m
 	echo "Mapping stopped."
