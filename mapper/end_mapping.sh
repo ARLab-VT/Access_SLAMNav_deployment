@@ -5,6 +5,7 @@ if [ $? != 0 ]; then
 	exit 1
 fi
 
+
 tmux has-session -t rosbagger $2>/dev/null
 if [ $? = 0 ]; then
 	rosnode kill /bagger
@@ -16,7 +17,7 @@ fi
 
 tmux has-session -t zedmapper $2>/dev/null
 if [ $? = 0 ]; then
-	rosnode kill /zed/zed_wrapper
+	rosnode kill /zed/zed_node
 	tmux send-keys -t zedmapper "echo bagels" C-m
 	tmux send-keys -t zedmapper "tmux kill-session" C-m
 	echo "Mapping stopped."

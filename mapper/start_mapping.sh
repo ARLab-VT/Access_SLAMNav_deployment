@@ -23,7 +23,7 @@ else
 	if [ "$ACTION" = "bag" ]; then
 		tmux new-session -d -s rosbagger
 		tmux send-keys -t rosbagger "catsource" C-m
-		tmux send-keys -t rosbagger "rosbag record --lz4 --chunksize=25600 --buffsize=102400 -o '$OUT' __name:=bagger /zed/zed_node/rgb/image_rect_color /zed/zed_node/rgb/camera_info /zed/zed_node/depth/camera_info /zed/zed_node/depth/depth_registered /zed/zed_node/odom /tf" C-m
+		tmux send-keys -t rosbagger "rosbag record --lz4 --chunksize=25600 --buffsize=102400 -o '$OUT' __name:=bagger /zed/zed_node/rgb/image_rect_color /zed/zed_node/rgb/camera_info /zed/zed_node/depth/camera_info /zed/zed_node/depth/depth_registered /zed/zed_node/odom /tf /tf_static" C-m
 		echo "Now running rosbag node 'bagger' in tmux session rosbagger."
 	fi
 	tmux new-session -d -s zedmapper
