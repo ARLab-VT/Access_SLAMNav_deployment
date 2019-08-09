@@ -39,25 +39,6 @@ catkin_ws=catkin_ws_cb	# desired name of catkin workspace
 pkg=access_mapping	# name of ROS package to build
 
 ############################################################################
-# SETUP CATKIN WORKSPACE (USING CATKIN_TOOLS)
-############################################################################
-# install catkin_tools with apt-get
-# note: This should be done separately from the tutorials on ROS wiki.
-#       catkin_tools work seperately from default catkin tools (catkin_make,etc.)
-#       See https://catkin-tools.readthedocs.io/en/latest/history.html
-#       See https://answers.ros.org/question/243192/catkin_make-vs-catkin-build/
-#       for options in combining catkin build and catkin_make (not recommended).
-source $shell_setup
-source /usr/local/bin/virtualenvwrapper.sh
-cd ~
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
-wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install python-catkin-tools
-sudo apt-get install python3-pip python3-yaml
-sudo apt-get install python3-dev python3-numpy
-
-############################################################################
 # BUILD CV_BRIDGE, GEOMETRY, GEOMETRY2, ACCESS_MAPPING for ROS in PYTHON3
 ############################################################################
 # install required ROS packages to use Python 3 in ROS
